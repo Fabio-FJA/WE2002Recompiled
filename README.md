@@ -1,131 +1,70 @@
-# WE2002Recompiled
+# Winning Eleven 2002 Recompiled
 
-<!-- retcomm-readme-metrics -->
-[![GitHub downloads (all assets, all releases)](https://img.shields.io/github/downloads/RetroPortingToolKit/WE2002Recompiled/total)](https://github.com/RetroPortingToolKit/WE2002Recompiled/releases)
-[![GitHub downloads (latest release)](https://img.shields.io/github/downloads/RetroPortingToolKit/WE2002Recompiled/latest/total)](https://github.com/RetroPortingToolKit/WE2002Recompiled/releases/latest)
-[![GitHub release](https://img.shields.io/github/v/release/RetroPortingToolKit/WE2002Recompiled)](https://github.com/RetroPortingToolKit/WE2002Recompiled/releases/latest)
-<!-- /retcomm-readme-metrics -->
+Unofficial static recompilation of Winning Eleven 2002 for Windows, originally released for the Sony PlayStation in 2002.
 
-Static recompilation of **WE2002** built on
-[psxrecomp](https://github.com/mstan/psxrecomp) and
-[recomp-ui](https://github.com/RetroPortingToolKit/recomp-ui).
+This project translates the original MIPS machine code into C and compiles it into a native Windows x64 executable, preserving the original gameplay, graphics, audio and game mechanics through the PSXRecomp runtime.
 
-_Add a short pitch in catalog_identity.json / README._
+## Game Information
 
 | | |
 |---|---|
-| Players | 2 |
-| Region | Japan |
-| Publisher | - |
-| Year | - |
+| Developer | Konami |
+| Release Year | 2002 |
+| Original Platform | PlayStation |
+| Target Platform | Windows x64 |
+| Game ID | SLPM-87056 |
+| Region | NTSC-J |
+| Players | 1–2 |
+| Languages | C / C++ |
+| Version | 0.1.0 |
 
-Scaffolded with the New Project Layout. See
-`psxrecomp/docs/GAME_PROJECT_SETUP.md` for the full flow.
+## Features
 
-<!-- retcomm-readme-launcher -->
-## Retro Launcher
+- Static MIPS to C recompilation.
+- Native Windows x64 executable.
+- OpenGL rendering.
+- SDL3 integration.
+- 60 FPS operation observed during testing.
+- Configurable resolution.
+- Keyboard and controller support.
+- OpenBIOS support.
+- Local multiplayer.
+- Portable disc directory.
 
-You can run this title **standalone** (download the release zip, point it at
-your disc, play), or manage installs, updates, and disc/BIOS wiring with
-**[Retro Launcher](https://github.com/RetroPortingToolKit/Retro-Launcher)** —
-the Retro Compilation Manager hub for self-compiling recomps.
+## Installation
 
-[Downloads](https://github.com/RetroPortingToolKit/Retro-Launcher/releases) ·
-[Full README & features](https://github.com/RetroPortingToolKit/Retro-Launcher#readme)
+1. Download the repository using Code → Download ZIP.
+2. Extract the downloaded archive.
+3. Place your own compatible game disc image inside the Windows/disc directory.
+4. Make sure the BIN and CUE files are named WE2002.bin and WE2002.cue.
+5. Run WE2002Recompiled.exe inside the Windows directory.
 
-<p align="center">
-  <img src="https://raw.githubusercontent.com/RetroPortingToolKit/Retro-Launcher/main/docs/screenshots/hub-and-game-launcher.png" alt="Retro hub with a background build, next to a title’s recomp-ui launcher" width="720">
-</p>
+Additional setup may be required on first launch.
 
-<p align="center">
-  <img src="https://raw.githubusercontent.com/RetroPortingToolKit/Retro-Launcher/main/docs/screenshots/queue-and-background-build.png" alt="Background cmake build with titles queued" width="720">
-</p>
+## Project Goals
 
-Retro checks for updates, installs the prebuilt release zips, and automates
-BIOS/ROM/save plumbing so you are not stuck repeating each game’s first run by hand.
-<!-- /retcomm-readme-launcher -->
+- Improve game compatibility and performance.
+- Enhance graphics and rendering.
+- Implement widescreen improvements.
+- Expand customization and modding capabilities.
+- Reverse engineer original game mechanics.
+- Preserve classic football gameplay on modern computers.
 
-## Legal
+## Project Status
 
-You must own the original game. Disc images under `disc/` are gitignored and
-must never be committed. Retail BIOS dumps are not redistributed and no C
-derived from one may be committed; releases run on the bundled MIT OpenBIOS.
+Experimental and under development. The game has been successfully recompiled and tested on Windows.
 
-`generated/` (the recompiled game C) **is committed**: releases ship the
-compiled game, built by CI from that tree. Regenerate and commit it whenever
-seeds or the framework pin change.
+## Credits
 
-Default app icon: `assets/psxrecomp.ico` (and `.png` / `.svg`) — Retro-themed controller mark from `psxrecomp/assets/`. Windows builds embed it via `APP_ICON`.
+- Konami: Original game.
+- PSXRecomp: Static recompilation framework.
+- OpenBIOS: Open-source PlayStation BIOS.
+- SDL3: Multimedia library.
 
-Optional box art under `launcher_assets/img/` may come from
-[libretro-thumbnails](https://github.com/libretro-thumbnails/libretro-thumbnails)
-(`Named_Boxarts`); see `BOXART_SOURCE.txt` when present.
+## Disclaimer
 
-## Quick start (dev)
+This is an unofficial, non-commercial project focused on game preservation, reverse engineering and technical research.
 
-```bash
-git submodule update --init --recursive
-./psxrecomp/tools/ci/build_emitters.sh
-python3 psxrecomp/psxrecomp_cli.py generate \
-  --config game.toml --project-root . --disc disc/<your>.cue
-git add generated && git commit -m "Regenerate game C"
-# Configures, builds, and stages overlay_toolchain/ beside the runtime so
-# streamed overlays can be compiled to native shards (a bare cmake build
-# skips that stage and leaves every overlay gap interpreted).
-python3 psxrecomp/psxrecomp_cli.py rebuild \
-  --config game.toml --project-root . --build-dir build-release --no-pgo
-```
+This repository does not include the original game disc image. Users must provide their own legally obtained copy of Winning Eleven 2002.
 
-Official optimized Windows/Linux releases use the maintained shared builder
-with the title disc available. Commit the desired `VERSION`, source and
-framework pins, then run:
-
-```bash
-scripts/package_release.sh --channel public
-# Use --channel playtest for a non-public package; --platform selects Windows/Linux.
-```
-
-On Windows PowerShell, use
-`psxrecomp/tools/package_title_release.ps1 --channel public`. The generated
-`packaging/release.toml` and player instructions define the title payload.
-The shared builder owns regeneration, qualified build defaults, fresh private
-PGO boot training on supported native toolchains, staging and verification.
-Boot training is a build step, not gameplay qualification or a performance
-claim. See `psxrecomp/docs/RELEASING_A_TITLE.md`.
-
-The separate *Release builds* CI workflow (tag `vX.Y.Z` or dispatch) builds
-committed `generated/` C without a disc on Linux, Windows and macOS. It uses
-`scripts/package_prebuilt_release.sh` and attaches compiled-game ZIPs. That
-explicit prebuilt path does not train selective PGO and is not the official
-optimized-release command. The common builder does not add macOS support.
-
-Studio's current Export action still uses the old prebuilt argument contract;
-use the shared command above for optimized releases until Studio adopts the
-recipe/channel interface. Its packager detection and `packaging/` warning also
-need that adoption; the generated recipe is maintained configuration, not a
-forked packager.
-
-## Symbols
-
-Progressive map: `symbols.toml` → `python3 tools/sync_symbols.py` →
-`psx_symbols.h` (`PSX_FN_*`). See `psxrecomp/docs/SYMBOLS.md`.
-
-## Framework pins
-
-Submodule gitlinks (`psxrecomp`, optional `recomp-ui`, nested `recomp-net`)
-are authoritative. `framework_pins.txt` is an optional scaffold snapshot;
-release CI logs SHAs with `record_pins.sh` but builds whatever the gitlinks
-resolve to. Bump submodules deliberately — do not float on `main`/`master`
-in release CI.
-
-<!-- retcomm-readme-raid -->
----
-
-<p align="center">
-  <sub><b>R.A.I.D. — Retro AI Development</b> · a Discord for AI-assisted retro reverse-engineering, decomp &amp; recomp</sub>
-</p>
-
-<p align="center">
-  <a href="https://discord.gg/Ad9BwSzctP"><img src=".github/raid-discord.png" alt="Join the Retro AI Development (R.A.I.D.) Discord" width="200"></a>
-</p>
-<!-- /retcomm-readme-raid -->
+All original game rights belong to their respective owners.
