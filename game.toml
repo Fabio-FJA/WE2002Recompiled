@@ -1,0 +1,54 @@
+# Autofilled by tools/new_project_layout/probe_disc.py from your legal dump.
+# Review before shipping. Runtime quirks / overlay seeds still need hand work.
+
+[game]
+name = "WE2002"
+id = "SLPM-87056"
+players = 2
+exe = "disc/SLPM_870.56"
+disc = "C:\\RecompDev\\Jogos\\WE2002.cue"
+load_address = "0x80010000"
+entry_pc = "0x80010008"
+text_size = "0x00052000"
+stack_base = "0x801FFFF0"
+
+# Digests are for data Track 01 (first BINARY FILE / TRACK 01).
+[prepare_disc]
+out_dir = "disc"
+bin_name = "WE2002.bin"
+cue_name = "WE2002.cue"
+boot_exe = "SLPM_870.56"
+known_sizes = [474431328]
+known_md5 = [
+  "e6b631882fc6f90ab4d337906072d7fe",
+]
+known_sha1 = [
+  "0822c7fa3908a1949790e5f25c7145d7443dfb4a",
+]
+known_crc32 = [
+  "f48f5852",
+]
+
+[recompiler]
+seeds = "seeds/ghidra_funcs.txt"
+out_dir = "generated"
+strict = true
+
+[runtime]
+window_title = "WE2002 Recompiled"
+memcard_dir = "saves"
+overlay_cache = true
+
+[video]
+renderer = "opengl"
+aspect_ratio = "4:3"
+
+[controller]
+default_mode = "digital"
+
+# Online mount gate: digests + track count + optional TOC fingerprint
+# (see docs/NETPLAY.md).
+[netplay]
+require_cue = true
+required_tracks = 9
+required_disc_fp = "b93cd18b0ec42a10e2d6487ef20312f734696ace01070234e29479a4f9800570"

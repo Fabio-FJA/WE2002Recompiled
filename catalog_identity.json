@@ -1,0 +1,46 @@
+{
+  "format_version": 1,
+  "game": {
+    "name": "WE2002",
+    "id": "SLPM-87056",
+    "boot_exe": "SLPM_870.56"
+  },
+  "marketing": {
+    "description": "",
+    "publisher": "",
+    "year": "",
+    "region": "Japan",
+    "players": 2
+  },
+  "rom_identity": {
+    "cue_name": "WE2002.cue",
+    "bin_name": "WE2002.bin",
+    "track_counts": [
+      9
+    ],
+    "require_cue": true,
+    "data_track": {
+      "size": 474431328,
+      "md5": "e6b631882fc6f90ab4d337906072d7fe",
+      "sha1": "0822c7fa3908a1949790e5f25c7145d7443dfb4a",
+      "crc32": "f48f5852"
+    },
+    "disc_fp": "b93cd18b0ec42a10e2d6487ef20312f734696ace01070234e29479a4f9800570"
+  },
+  "exe": {
+    "load_address": "0x80010000",
+    "entry_pc": "0x80010008",
+    "text_size": "0x00052000",
+    "stack_base": "0x801FFFF0"
+  },
+  "seeds": {
+    "count": 607,
+    "source": "boot_exe_jal"
+  },
+  "warnings": [],
+  "notes": [
+    "entry_pc/load_address/text_size/stack_base taken from PS-X EXE header.",
+    "seeds are first-pass boot-EXE JAL targets (+ entry); expect to grow as overlays / runtime paths are discovered.",
+    "required_disc_fp is psxrecomp-toc-v1 (matches runtime DiscIdentity)."
+  ]
+}
