@@ -1,0 +1,10 @@
+Coloque os arquivos da sua cópia do Winning Eleven 2002 nesta pasta.
+
+WE2002.bin
+WE2002.cue
+
+Inclua todas as trilhas referenciadas pelo arquivo CUE.
+
+Após adicionar os arquivos, execute WE2002Recompiled.exe.
+
+A imagem do jogo original não está incluída neste projeto.

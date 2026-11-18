@@ -92,3 +92,8 @@ starvation_dump.jsonl
 !/.recomp.json
 *.h
 *.h
+
+# Local game disc
+!/Windows/disc/
+/Windows/disc/*
+!/Windows/disc/LEIA-ME.txt
