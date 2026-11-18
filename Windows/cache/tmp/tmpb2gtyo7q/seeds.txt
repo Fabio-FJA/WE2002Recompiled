@@ -1,0 +1,27 @@
+call_root 0x800851EC
+call_root 0x80085274
+interior 0x800852C4
+call_root 0x8008535C
+call_root 0x800853E0
+interior 0x8008542C
+interior 0x80085440
+interior 0x800854BC
+interior 0x8008550C
+call_root 0x80085584
+interior 0x800855A0
+interior 0x800855A8
+interior 0x800855B8
+interior 0x80085634
+interior 0x80085650
+interior 0x80085750
+interior 0x80085768
+interior 0x800857A0
+interior 0x800857B0
+call_root 0x80085800
+interior 0x80085818
+interior 0x80085820
+interior 0x80085828
+call_root 0x800858D8
+call_root 0x800858E0
+0x800858E8
+call_root 0x80085AE8

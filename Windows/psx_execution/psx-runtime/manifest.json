@@ -1,0 +1,22 @@
+{
+  "schema":1,
+  "profile":"ENHANCED",
+  "identity":"0ca9511a59dc78250d17511023141a8ebf533de79720732ff3162149da7d101a",
+  "shared_contract_sha256":"66137477795f0b9a738a49a32fc1dfcc38629615cb572944ba21d962391acb1b",
+  "implementations":[
+    {"name":"block-audio","contract":"latched-irq-block-0-v1","source_sha256":"740c39993cb84f0b33bf9d9b3744671580bae8e8b5d979d92a91124681a911b9"},
+    {"name":"cpu-spans","contract":"generated-native-span-v1","source_sha256":"133b10a97a925a8b1cc17fafdc3011657d22fb3a518eb13c4b856809bf238c49"},
+    {"name":"direct-guest-memory","contract":"native-data-pages-0-v2","source_sha256":"b26db3b031b809fbf0097f1678f32994003060cfc134df1e233531ce22739e3d"},
+    {"name":"gpu-frame-submission","contract":"native-list-1-v1","source_sha256":"f513a6c8b391a569214ccea7c34855d1c19576eb90b71a8dfcf841e2158858ad"},
+    {"name":"host-profile-admission","contract":"immutable-host-catalog-0-v1","source_sha256":"26c4f1292290c6af919a996752403abcc91dffff08f16afb6bff872ce0772a79"},
+    {"name":"machine-time","contract":"per-device-observation-0-v3","source_sha256":"fae7f9e8f1a55e3afc9f8b8ab2e543849c99f264ec3415fc4599aad4ec027c44"},
+    {"name":"mdec-media-jobs","contract":"bounded-fifo-publication-v1","source_sha256":"ca0cc934ecca8f052155f1209f4cd4a976ab0af38afc70d2e3aa702e4b15b42d"},
+    {"name":"openbios-block-read","contract":"openbios-cd-request-v1","source_sha256":"9e802056e8d5fa4afa380bac078869a62ff97b139a2c4c7812a92c082189f7b1"},
+    {"name":"precision-dataflow","contract":"cfg-shadow-lifetimes-0-v2","source_sha256":"f604c9fdb98bcc263ff40c0bff6864dfc905bcbe99f560a7106929a5c485c7d7"},
+    {"name":"precision-demand","contract":"geometry-demand-recipes-0-v2","source_sha256":"e1d96d154a611c5113dfd3fb3ddebc842869ffdd2303714e7f2882efbdd77645"},
+    {"name":"precision-operations","contract":"write-owned-integer-operations-0-v2","source_sha256":"d712f51fcac965607a7befdb3e792e8268639866877a88da76418fc042ac411c"},
+    {"name":"precision-slices","contract":"plain-alu-0-v1","source_sha256":"8cbc1a62f1e69bcbf6b2dde663080dc79959726718445c900960ddef5e6fe1fd"},
+    {"name":"snapshot-capture","contract":"reusable-raw-capture-v1","source_sha256":"2133bcdf8cea981108ca756fd07270d4393338a9cc17b1bee1879ba5a19bb34b"},
+    {"name":"static-native-calls","contract":"write-validated-cps-0-tail-0-v2","source_sha256":"71c9ea31db232f9b4a8ba55c58dc9c97f1a1e2914e1660c34e4a47dbd3a7657e"}
+  ]
+}

@@ -1,0 +1,5 @@
+# psxrecomp overlay code-range manifest v1
+# F <entry>   one per function (virtual entry address)
+# R <lo> <len>  one per coalesced code range (hex, virtual)
+F 80111288
+R 80111288 6AC
